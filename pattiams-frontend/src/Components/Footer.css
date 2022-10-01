@@ -1,0 +1,33 @@
+.footer-main-div {
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+.footer-sub-heading {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  font-feature-settings: 'liga' off;
+  color: #CE0E2D;
+}
+.footer-links {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 36px;
+  color: #2F294D;
+}
+.footer-bottom-text-div {
+  border-top: 1px solid #2F294D;
+}
+.footer-bottom-text {
+  font-family: 'Kanit', sans-serif;
+
+}
+.toggleButton {
+    width: 100%;
+    background: none;
+    
+}

@@ -1,0 +1,46 @@
+.product-category-heading-div {
+    height: 200px;
+    background: rgba(147, 178, 120, 0.1);
+    border: 1px solid #93B278;
+    border-radius: 30px;
+  }
+  .pattiams-ayurveda-icon-img {
+    width: 157px;
+  }
+  .pattiams-ayurveda-img {
+    margin-top: -22px;
+  }
+  .pattiams-category-desc {
+    font-family: 'Monarch', sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 46px;
+    color: #2F294D;
+  }
+
+/* Mobile heading stylings starts here */
+  .pattiams-category-heading-mobile {
+      background: rgba(147, 178, 120, 0.1);
+      border: 0.5px solid #93B278;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 40px 0px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+  }
+  .pattiams-category-heading-text {
+    font-family: 'Monarch';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 22px;
+    text-align: center;
+    color: #2F294D;
+}
+@media screen and (max-width: 991.9px){
+  .category-heading-main-container {
+      padding: 60px 0px;
+  }
+}
+/* Mobile heading stylings ends here */

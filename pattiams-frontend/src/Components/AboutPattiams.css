@@ -1,0 +1,60 @@
+.about-pattiams-main-div {
+    padding: 80px 0 80px 0;
+    background: #FBF6F4;
+  }
+  .about-text-in-about-pattiams {
+    font-family: 'Monarch', sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    /* margin-bottom: 15px; */
+  }
+  .pattiams-logo-in-about {
+    width: 150px;
+    margin-bottom: 15px;
+  }
+  .about-text-desc {
+    font-size: 16px;
+  }
+  /* Mobile starts here */
+  .founder-msg-heading-mobile {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    margin: 50px 0 30px 0;
+  }
+  .founder-img-in-mobile {
+    width: 110px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .directors-img-div {
+    width: 79px;
+    height: 79px;
+    border: 1px solid #2F294D;
+    border-radius: 50px;
+  }
+  .directors-img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    border-radius: 50px;
+  }
+  .directors-name {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #CE0E2D;
+  }
+  .directors-subhead {
+    font-weight: 400;
+    font-size: 8.5px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #2F294D;
+  }
+  /* Mobile ends here */

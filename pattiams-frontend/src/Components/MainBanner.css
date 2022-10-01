@@ -1,0 +1,35 @@
+.banner-slide-text {
+    bottom: 34% !important;
+}
+.banner-slide-title {
+    font-family: 'Monarch';
+}
+/* .mobile-banner-div {
+    height: 100vh;
+} */
+.carousel-cat-logo {
+    width: 250px;
+    background: white;
+    padding: 10px 25px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+@media screen and (max-width: 768px) {
+    .banner-slide-text h1 {
+        margin-bottom: 4.5rem !important;
+    }
+}
+@media screen and (max-width: 576px) {
+    .carousel-cat-logo {
+        width: 200px;
+    }
+    .banner-slide-text {
+        bottom: 46% !important;
+    }
+    .carousel-indicators {
+        display: none !important;
+    }
+    .carousel-caption {
+        padding-bottom: 12.25rem !important;
+    }
+}

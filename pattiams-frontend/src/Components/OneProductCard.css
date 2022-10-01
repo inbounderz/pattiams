@@ -1,0 +1,110 @@
+  .card-content-main-div {
+    height: 346px;
+    padding: 10px;
+    padding-bottom: 15px;
+    margin: 0px 30px 0px 30px;
+    background: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+  }
+  .popular-product-image-div {
+    display: flex;
+    justify-content: center;
+  }
+  .popular-product-image {
+      object-fit: cover;
+      border-radius: 7px;
+      width: 236px;
+      height: 231px;
+  }
+  @media screen and (max-width: 576px) {
+    .card-content-main-div {
+      width: 260px;
+    }
+    .product-card {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  @media screen and (min-width: 576px) and (max-width: 767.9px) {
+    .card-content-main-div {
+      width: 260px;
+    }
+    .product-card {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199.9px) {
+    .card-content-main-div {
+      width: 260px;
+    }
+  }
+  @media screen and (min-width: 1200px) and (max-width: 1399.9px) {
+    .popular-product-image {
+      height: 198px;
+    }
+    .card-content-main-div {
+      height: 310px;
+    }  
+  }
+  .popular-product-text-div{
+      padding: 15px 0px 15px 0px;
+  }
+  .popular-products-category-name {
+      color: #93B278;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+  }
+  .popular-products-name {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 5px;
+      color: #2F294D;
+  }
+  .original-price {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    text-decoration-line: line-through;
+    color: #C4C4C4;
+  }
+  .discounted-price {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #2F294D;
+  }
+  .popular-product-add-to-fav-icon {
+    width: 25px;
+  }
+  .add-to-cart-button-in-product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 16px;
+    gap: 10px;
+    top: 2px;
+    background: #93B278;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .add-to-cart-text{
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    color: #FFFFFF;
+  }
+  @media screen and (max-width: 768px) {
+    .card-content-main-div {
+      margin: 0px 20px 0px 20px;
+    }
+  }

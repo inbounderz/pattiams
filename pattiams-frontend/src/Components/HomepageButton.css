@@ -1,0 +1,19 @@
+.view-more-products-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 24px;
+    gap: 10px;
+    position: absolute;
+    width: 160px;
+    height: 33px;
+    background: #93B278;
+    border-radius: 20px;
+}
+.add-to-cart-text{
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    color: #FFFFFF;
+}

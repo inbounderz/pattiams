@@ -1,0 +1,17 @@
+input[type="radio"] {
+    display: none;
+}
+label {
+    color: #CE0E2D;
+    background-color: #FBF6F4;
+    border: 1px solid #CE0E2D;
+    padding: 10px;
+    padding: 5px 25px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+input[type="radio"]:checked + label {
+    background-color: #CE0E2D;
+    color: #fff;
+}
