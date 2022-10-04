@@ -56,7 +56,7 @@ const CategoryBar = () => {
             </Link>
           </div>
           <div className="col-6 col-sm-4 col-md-3 col-lg-2">
-          <Link to={`productlist/abhyanga`} className="text-decoration-none">
+          <a href="https://pattiamsabhyanga.com" className="text-decoration-none" target="_blank">
             <div className="text-center">
               <img
                 className=""
@@ -65,7 +65,7 @@ const CategoryBar = () => {
               />
               <p className="categorybar-text">Abhyanga</p>
             </div>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

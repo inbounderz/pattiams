@@ -2,7 +2,7 @@ import "./Navigationbar.css";
 import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import { Badge } from 'react-bootstrap';
+import { Badge } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -58,7 +58,7 @@ const Navigationbar = () => {
 
   const blurHandler = () => {
     setKeyword([]);
-  }
+  };
 
   useEffect(() => {
     dispatch(listProducts());
@@ -79,15 +79,21 @@ const Navigationbar = () => {
                   <div>
                     <div className="d-flex">
                       <div className="d-none d-lg-block">
-                      <DropdownButton
-                        variant=""
-                        title="Categories"
-                        id="input-group-dropdown-1"
-                      >
-                        <Dropdown.Item href="/productlist/ayurveda">Ayurveda</Dropdown.Item>
-                        <Dropdown.Item href="/productlist/beautycare">Beauty Care</Dropdown.Item>
-                        <Dropdown.Item href="/productlist/organicfoods">Foods</Dropdown.Item>
-                      </DropdownButton>
+                        <DropdownButton
+                          variant=""
+                          title="Categories"
+                          id="input-group-dropdown-1"
+                        >
+                          <Dropdown.Item href="/productlist/ayurveda">
+                            Ayurveda
+                          </Dropdown.Item>
+                          <Dropdown.Item href="/productlist/beautycare">
+                            Beauty Care
+                          </Dropdown.Item>
+                          <Dropdown.Item href="/productlist/organicfoods">
+                            Foods
+                          </Dropdown.Item>
+                        </DropdownButton>
                       </div>
                       <input
                         type="text"
@@ -121,12 +127,15 @@ const Navigationbar = () => {
               <LinkContainer to="/wishlist" className="me-4">
                 <Nav.Link className="d-flex align-items-center me-4">
                   <div className="d-flex justify-content-start align-items-start">
-                  <img
-                    className="wishlist-icon"
-                    src="/images/wishlist_icon.svg"
-                    alt="pattiams_wishlist"
-                  /><Badge bg="danger">{wishlistItems &&
-                    wishlistItems.reduce((acc, item) => acc + 1, 0)}</Badge>
+                    <img
+                      className="wishlist-icon"
+                      src="/images/wishlist_icon.svg"
+                      alt="pattiams_wishlist"
+                    />
+                    <Badge bg="danger">
+                      {wishlistItems &&
+                        wishlistItems.reduce((acc, item) => acc + 1, 0)}
+                    </Badge>
                   </div>
                   <span className="wishlist-text">Wishlist</span>
                 </Nav.Link>
@@ -145,10 +154,7 @@ const Navigationbar = () => {
                       {cartItems &&
                         cartItems
                           .reduce(
-                            (acc, item) =>
-                              acc +
-                              Number(item.qty) *
-                                (item.price),
+                            (acc, item) => acc + Number(item.qty) * item.price,
                             0
                           )
                           .toFixed(2)}

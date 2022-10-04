@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 // import CategoryHeading from "./CategoryHeading";
 
 import axios from "axios";
+import { Button } from "react-bootstrap";
 
 const Products = ({ showAlert }) => {
   const [categories, setCategories] = useState([]);
@@ -368,20 +369,15 @@ const Products = ({ showAlert }) => {
         {/* <div className="text-center d-lg-none">
           <p>{category.desc}</p>
         </div> */}
-        {/* Category heading ends here */}
-        {categories
-          .filter((cat) => cat.name == "abhyanga")
-          .map((category) => (
-            <div key={category._id}>
-              <Link
-                to={`/productlist/${category.name}`}
-                className="text-decoration-none"
-                
-              >
-                <HomepageButton text="View more" />
-              </Link>
-            </div>
-          ))}
+        <div className="text-center">
+        <a
+          href={`https://pattiamsabhyanga.com`}
+          className="text-decoration-none"
+          target="_blank"
+        >
+          <Button>Visit Pattiam's Abhyanga</Button>
+        </a>
+        </div>
       </div>
     </Container>
   );
