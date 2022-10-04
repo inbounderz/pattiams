@@ -17,6 +17,8 @@ const ShippingScreen = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const [name, setName] = useState(shippingAddress.name);
+  const [phone, setPhone] = useState(shippingAddress.phone);
   const [flat, setFlat] = useState(shippingAddress.flat);
   const [area, setArea] = useState(shippingAddress.area);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
@@ -27,7 +29,7 @@ const ShippingScreen = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
-      saveShippingAddress({ flat, area, postalCode, landmark, city, state })
+      saveShippingAddress({ name, phone, flat, area, postalCode, landmark, city, state })
     );
     navigate("/payment");
   };
@@ -89,6 +91,31 @@ const ShippingScreen = () => {
               <h5>Please provide your shipping address</h5>
 
               <Form onSubmit={submitHandler}>
+
+                <Form.Group controlId="name" className="mt-4">
+                  <Form.Label>
+                    Name
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={name}
+                    required
+                    onChange={(e) => setName(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
+
+                <Form.Group controlId="phone" className="mt-4">
+                  <Form.Label>
+                    Phone
+                  </Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={phone}
+                    required
+                    onChange={(e) => setPhone(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
+                
                 <Form.Group controlId="flat" className="mt-4">
                   <Form.Label>
                     Flat, House no., Building, Company, Apartment

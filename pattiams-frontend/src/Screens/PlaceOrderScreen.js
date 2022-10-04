@@ -32,8 +32,6 @@ const PlaceOrderScreen = () => {
   //   0
   // );
 
-  console.log(cartItems2);
-
   cartItems2.itemsPrice = cartItems2.products.reduce((acc, item) => acc + Number(item.qty) * (item.price), 0);
 
   cartItems2.shippingPrice = cartItems2.itemsPrice > 199 ? 0 : 60;
@@ -77,6 +75,10 @@ const PlaceOrderScreen = () => {
                   Address:
                   <br />
                 </strong>
+                {cartItems2.shippingAddress.name}
+                <br />
+                {cartItems2.shippingAddress.phone}
+                <br />
                 {cartItems2.shippingAddress.flat}
                 <br />
                 {cartItems2.shippingAddress.area}

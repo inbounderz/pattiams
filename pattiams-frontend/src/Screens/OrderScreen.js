@@ -12,19 +12,24 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
-import { getOrderDetails, payOrder, deliverOrder } from "../Actions/orderActions";
+import {
+  getOrderDetails,
+  payOrder,
+  deliverOrder,
+  shipOrder,
+} from "../Actions/orderActions";
 import axios from "axios";
 import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
   ORDER_PAY_SUCCESS,
+  ORDER_SHIP_RESET,
 } from "../Constants/orderConstants";
 
 const OrderScreen = () => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const { id } = useParams();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -39,22 +44,23 @@ const OrderScreen = () => {
   const orderDeliver = useSelector((state) => state.orderDeliver);
   const { loading: loadingDeliver, success: successDeliver } = orderDeliver;
 
+  const orderShip = useSelector((state) => state.orderShip);
+  const { loading: loadingShip, success: successShip } = orderShip;
+
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
-
-    if(!userInfo){
-      navigate('/login');
+    if (!userInfo) {
+      navigate("/login");
     }
-    if (!order || successPay || successDeliver) {
-
+    if (!order || successPay || successDeliver || successShip) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch({ type: ORDER_DELIVER_RESET });
+      dispatch({ type: ORDER_SHIP_RESET });
 
       dispatch(getOrderDetails(id));
-      
     }
-  }, [dispatch, id, successPay, successDeliver, order]);
+  }, [dispatch, id, successPay, successDeliver, successShip, order]);
 
   const loadScript = (src) => {
     return new Promise((resolve) => {
@@ -109,8 +115,12 @@ const OrderScreen = () => {
   };
 
   const deliverHandler = () => {
-    dispatch(deliverOrder(order))
-  }
+    dispatch(deliverOrder(order));
+  };
+
+  const shipHandler = () => {
+    dispatch(shipOrder(order));
+  };
 
   return loading ? (
     <Loader />
@@ -128,6 +138,10 @@ const OrderScreen = () => {
                   Address:
                   <br />
                 </strong>
+                {order.shippingAddress.name}
+                <br />
+                {order.shippingAddress.phone}
+                <br />
                 {order.shippingAddress.flat}
                 <br />
                 {order.shippingAddress.area}
@@ -142,9 +156,16 @@ const OrderScreen = () => {
               </p>
               <div className="my-3">
                 {order.isDelivered ? (
-                  <Message variant="success">Delivered on {order.deliveredAt}</Message>
+                  <Message variant="success">
+                    Delivered on {order.deliveredAt}
+                  </Message>
                 ) : (
                   <Message variant="danger">Order Submitted</Message>
+                )}
+                {order.isShipped && (
+                  <Message variant="success">
+                    Shipped on {order.shippedAt}
+                  </Message>
                 )}
               </div>
             </ListGroup.Item>
@@ -237,22 +258,23 @@ const OrderScreen = () => {
                 {error && <Message variant="danger">{error}</Message>}
               </ListGroup.Item>
               <ListGroup.Item className="d-flex justify-content-center">
-              {!order.isPaid && order.paymentMethod === "Razorpay" && (
-                <ListGroup.Item>
-                  <Button
-                    onClick={showRazorpay}
-                    className="btn btn-block round"
-                  >
-                    Pay with RazorPay
-                  </Button>
-                </ListGroup.Item>
-              )}
+                {!order.isPaid && order.paymentMethod === "Razorpay" && (
+                  <ListGroup.Item>
+                    <Button
+                      onClick={showRazorpay}
+                      className="btn btn-block round"
+                    >
+                      Pay with RazorPay
+                    </Button>
+                  </ListGroup.Item>
+                )}
               </ListGroup.Item>
 
               {loadingDeliver && <Loader />}
               {userInfo &&
                 userInfo.isAdmin &&
                 order.isPaid &&
+                order.isShipped &&
                 !order.isDelivered && (
                   <Button
                     className="btn btn - block"
@@ -262,7 +284,19 @@ const OrderScreen = () => {
                     Mark as delivered
                   </Button>
                 )}
-
+              {loadingShip && <Loader />}
+              {userInfo &&
+                userInfo.isAdmin &&
+                order.isPaid &&
+                !order.isShipped && (
+                  <Button
+                    className="btn btn - block"
+                    type="button"
+                    onClick={shipHandler}
+                  >
+                    Mark as shipped
+                  </Button>
+                )}
             </ListGroup>
           </Card>
         </Col>

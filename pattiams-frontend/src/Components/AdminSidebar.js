@@ -68,22 +68,6 @@ const AdminSidebar = () => {
               <span className="list-item-text">Orders' list</span>
             </li>
           </Link>
-          <li className="list-item" style={{ backgroundColor: changeBg("/") }}>
-            <i className="list-item-icon fas fa-users"></i>
-            <span className="list-item-text">Community</span>
-          </li>
-          <li className="list-item" style={{ backgroundColor: changeBg("/") }}>
-            <i className="list-item-icon fas fa-toolbox"></i>
-            <span className="list-item-text">Tools</span>
-          </li>
-          <li className="list-item" style={{ backgroundColor: changeBg("/") }}>
-            <i className="list-item-icon fas fa-shopping-basket"></i>
-            <span className="list-item-text">Market</span>
-          </li>
-          <li className="list-item" style={{ backgroundColor: changeBg("/") }}>
-            <i className="list-item-icon far fa-question-circle"></i>
-            <span className="list-item-text">Resources</span>
-          </li>
         </ul>
       </div>
     </div>

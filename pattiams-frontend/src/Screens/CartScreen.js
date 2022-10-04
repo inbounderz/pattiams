@@ -88,6 +88,7 @@ const CartScreen = () => {
             </Message>
           ) : (
             <ListGroup variant="flush">
+              {loading && <Loader/>}
               {products && products.map((item) => (
                 <ListGroup.Item key={item._id}>
                   <Row className="d-flex align-items-center">
@@ -246,13 +247,13 @@ const CartScreen = () => {
                   </div>
                 </Col>
                 <Col xs={4} className="d-flex align-items-center">
-                  {/* <Button
+                  <Button
                     type="button"
                     variant="light"
-                    onClick={() => removeFromCartHandler(item.product)}
+                    onClick={() => removeFromCartHandler(item._id)}
                   >
                     Remove<i className="fas fa-trash"></i>
-                  </Button> */}
+                  </Button>
                 </Col>
               </Row>
             ))}
