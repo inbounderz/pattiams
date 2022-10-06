@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import "./OneProductCard.css";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import "./OneProductCard.css";
-import { addToCart } from "../Actions/cartActions";
 import { addToWishlist } from "../Actions/wishlistActions";
 
 const OneProductCard = ({ product, showAlert }) => {

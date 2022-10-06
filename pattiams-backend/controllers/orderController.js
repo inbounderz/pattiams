@@ -28,12 +28,12 @@ const addOrderItems = asyncHandler(async (req, res) => {
       itemsPrice,
       taxPrice,
       shippingPrice,
-      totalPrice
+      totalPrice,
     });
 
     const createdOrder = await order.save();
     res.status(201).json(createdOrder);
-
+    
   }
 });
 
@@ -41,16 +41,17 @@ const addOrderItems = asyncHandler(async (req, res) => {
 // @router GET '/api/orders/:id'
 // @access Private
 const getOrderById = asyncHandler(async (req, res) => {
-  
-  const order = await Order.findById(req.params.id).populate('user', 'name email');
+  const order = await Order.findById(req.params.id).populate(
+    "user",
+    "name email"
+  );
 
   if (order) {
-    res.json(order)
+    res.json(order);
   } else {
-    res.status(404)
-    throw new Error('Order not found')
+    res.status(404);
+    throw new Error("Order not found");
   }
-
 });
 
 // UPDATE - UPDATE ORDER TO PAID
@@ -64,7 +65,6 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 
     const updatedOrder = await order.save();
     res.json(updatedOrder);
-
   } else {
     res.status(404);
     throw new Error("Order not found");
@@ -77,8 +77,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 const updateOrderToShipped = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
   if (order) {
-    if(order.isPaid) {
-
+    if (order.isPaid) {
       order.isShipped = true;
 
       order.shippedAt = Date.now();
@@ -86,13 +85,10 @@ const updateOrderToShipped = asyncHandler(async (req, res) => {
       const updatedOrder = await order.save();
 
       res.json(updatedOrder);
-
     } else {
       res.status(404);
       throw new Error("Amount not paid");
     }
-
-
   } else {
     res.status(404);
     throw new Error("Order not found");
@@ -105,8 +101,7 @@ const updateOrderToShipped = asyncHandler(async (req, res) => {
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
   if (order) {
-    if(order.isPaid) {
-
+    if (order.isPaid) {
       order.isDelivered = true;
 
       order.deliveredAt = Date.now();
@@ -114,13 +109,10 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
       const updatedOrder = await order.save();
 
       res.json(updatedOrder);
-
     } else {
       res.status(404);
       throw new Error("Amount not paid");
     }
-
-
   } else {
     res.status(404);
     throw new Error("Order not found");
@@ -139,8 +131,16 @@ const getMyOrders = asyncHandler(async (req, res) => {
 // @router GET '/api/orders'
 // @access ADMIN
 const getOrders = asyncHandler(async (req, res) => {
-  const orders = await Order.find({}).populate('user', 'id name');
-  res.json(orders)
-})
+  const orders = await Order.find({}).populate("user", "id name");
+  res.json(orders);
+});
 
-export { addOrderItems, getOrderById, updateOrderToPaid, getOrders, getMyOrders, updateOrderToDelivered, updateOrderToShipped };
+export {
+  addOrderItems,
+  getOrderById,
+  updateOrderToPaid,
+  getOrders,
+  getMyOrders,
+  updateOrderToDelivered,
+  updateOrderToShipped,
+};

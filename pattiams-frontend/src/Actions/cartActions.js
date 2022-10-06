@@ -42,8 +42,7 @@ export const addToCart =
 
 // Attach cart items to user (Create cart to the user)
 export const createCart = (product) => async (dispatch, getState) => {
-  console.log(product);
-
+  
   try {
     dispatch({ type: CART_CREATE_REQUEST });
 
@@ -91,6 +90,8 @@ export const getItemsFromCart = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(`/api/cart`, config);
+
+    console.log(data);
 
     dispatch({
       type: GET_CART_ITEM_SUCCESS,

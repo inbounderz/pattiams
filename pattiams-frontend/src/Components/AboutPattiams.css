@@ -23,7 +23,7 @@
     margin: 50px 0 30px 0;
   }
   .founder-img-in-mobile {
-    width: 110px;
+    width: 290px;
     border-radius: 10px;
     margin-bottom: 10px;
   }
@@ -41,7 +41,7 @@
   }
   .directors-name {
     font-weight: 500;
-    font-size: 11px;
+    font-size: 10px;
     line-height: 12px;
     display: flex;
     align-items: center;
@@ -50,11 +50,22 @@
   }
   .directors-subhead {
     font-weight: 400;
-    font-size: 8.5px;
+    font-size: 16px;
     line-height: 14px;
     display: flex;
     align-items: center;
     text-align: center;
     color: #2F294D;
+    margin-bottom: 10px;
+  }
+  .directors-subhead-2 {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #2F294D;
+    margin-bottom: 10px;
   }
   /* Mobile ends here */

@@ -83,7 +83,7 @@ const ProductListScreen = () => {
               <div className="text-center">
                 <img
                   className="my-3"
-                  src="../images/pattiams_ayurveda_icon.svg"
+                  src="../images/pattiams-ayurveda-logo-final.svg"
                 />
                 <p className="mt-3">
                   Ayurveda is the adaptation of nature into human life.
@@ -96,7 +96,7 @@ const ProductListScreen = () => {
               <div className="text-center">
                 <img
                   className="my-3"
-                  src="../images/pattiams_bodycare_icon.svg"
+                  src="../images/pattiams-beautycare-logo-final.svg"
                 />
                 <p className="mt-3">
                   Bringing you an exclusive collection of natural cosmetics. A

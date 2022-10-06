@@ -311,7 +311,7 @@ const SingleProduct = () => {
               </div>
 
               <div className="product-quantity d-flex align-items-center mt-4">
-                <span className="label-text me-3">quantity: </span>
+                <span className="label-text me-3">Quantity: </span>
                 <button className="quantity-control" onClick={handleDec}>
                   -
                 </button>

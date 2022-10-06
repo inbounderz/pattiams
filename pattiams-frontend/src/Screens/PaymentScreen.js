@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Button, Col } from "react-bootstrap";
 import CheckoutSteps from "../Components/CheckoutSteps";
@@ -7,10 +7,15 @@ import FormContainer from "../Components/FormContainer";
 import { savePaymentMethod } from "../Actions/cartActions";
 
 const PaymentScreen = () => {
+
   const navigate = useNavigate();
 
   const cartItems2 = useSelector((state) => state.cartItems2);
   const { shippingAddress } = cartItems2;
+
+  const onTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   if (!shippingAddress) {
     navigate("/shipping");
@@ -25,6 +30,11 @@ const PaymentScreen = () => {
     dispatch(savePaymentMethod(paymentMethod));
     navigate("/placeorder");
   };
+
+  useEffect(() => {
+    onTop();
+  }, [])
+  
 
   return (
     <div className="mt-3 paymentScreen">

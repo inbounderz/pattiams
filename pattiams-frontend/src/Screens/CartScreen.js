@@ -56,7 +56,7 @@ const CartScreen = () => {
     if(!userInfo){
       navigate('/login?goto=cart');
     } else {
-      dispatch(getItemsFromCart());
+        dispatch(getItemsFromCart());
     }
 
 
@@ -64,7 +64,7 @@ const CartScreen = () => {
     //   dispatch(addToCart(id, qty, variant, price));
     // }
 
-  }, [userInfo, navigate, dispatch, getItemsFromCart, success]);
+  }, [userInfo, navigate, dispatch, success]);
 
   const removeFromCartHandler = (id) => {
     if (window.confirm("Are you sure?")) {
@@ -89,6 +89,7 @@ const CartScreen = () => {
           ) : (
             <ListGroup variant="flush">
               {loading && <Loader/>}
+              {error && <Message variant={"danger"}>{error}</Message>}
               {products && products.map((item) => (
                 <ListGroup.Item key={item._id}>
                   <Row className="d-flex align-items-center">
@@ -127,7 +128,7 @@ const CartScreen = () => {
 
                     <Col md={2}>
                       <span>Price:&nbsp;</span>
-                      <span>₹{item && item.productVariant[0].price}</span>
+                      <span>₹{item && item.productVariant[0].price * item.qty}</span>
                     </Col>
 
                     <Col md={1}>
@@ -243,7 +244,7 @@ const CartScreen = () => {
                   </div>
                   <div>
                     <span>Price:&nbsp;</span>
-                    <span>₹{item && item.productVariant[0].price}</span>
+                    <span>₹{item && item.productVariant[0].price * item.qty}</span>
                   </div>
                 </Col>
                 <Col xs={4} className="d-flex align-items-center">

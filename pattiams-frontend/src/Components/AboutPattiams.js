@@ -61,7 +61,7 @@ const AboutPattiams = () => {
                 <HomepageButton text="Read more" />
               </Link>
               <span className="founder-msg-heading-mobile">
-                Founder's Message
+                Chairman's Message
               </span>
               <img
                 className="founder-img-in-mobile"
@@ -87,13 +87,13 @@ const AboutPattiams = () => {
               <div className="col-4 d-flex flex-column align-items-center">
                 <img className="executives-mob" src="images/md.jpeg" />
                 <span className="directors-name">Managing Director</span>
-                <span className="directors-subhead">C PRAKASHAN</span>
+                <span className="directors-subhead-2">C PRAKASHAN</span>
               </div>
 
               <div className="col-4 d-flex flex-column align-items-center">
                 <img className="executivesed-mob" src="images/ed.jpeg" />
                 <span className="directors-name">Executive Director</span>
-                <span className="directors-subhead">A RAMACHANDRAN</span>
+                <span className="directors-subhead-2">A RAMACHANDRAN</span>
               </div>
             </div>
           </div>

@@ -20,10 +20,10 @@ connectDB();
 const importData = async ()=> {
     try {
         
-        await Order.deleteMany();
-        await Product.deleteMany();
-        await User.deleteMany();
-        await Category.deleteMany();
+        // await Order.deleteMany();
+        // await Product.deleteMany();
+        // await User.deleteMany();
+        // await Category.deleteMany();
         // await CartItem.deleteMany();
 
         // const user = await User.findOne({admin: true});
@@ -32,24 +32,25 @@ const importData = async ()=> {
         // })
         // await CartItem.insertMany(sampleCartItems);
 
-        const createdUsers = await User.insertMany(users);
-        const adminUser = await createdUsers[0]._id;
+        // const createdUsers = await User.insertMany(users);
+        // const adminUser = await createdUsers[0]._id;
 
-        const sampleProducts = await products.map(product => {
-            return { ...product, user: adminUser }
-        })
+        // const sampleProducts = await products.map(product => {
+        //     return { ...product, user: adminUser }
+        // })
 
-        const sampleCategories = await categories.map(category => {
-            return { ...category, user: adminUser }
-        })
+        // const sampleCategories = await categories.map(category => {
+        //     return { ...category, user: adminUser }
+        // })
 
-        const sampleSubCategories = await subCategories.map((subCategory) => {
-            return { ...subCategory, user: adminUser }
-        })
+        // const sampleSubCategories = await subCategories.map((subCategory) => {
+        //     return { ...subCategory, user: adminUser }
+        // })
 
-        await Product.insertMany(sampleProducts)
-        await Category.insertMany(sampleCategories)
-        await Subcategories.insertMany(sampleSubCategories)
+        // await Product.insertMany(sampleProducts)
+        // await Category.insertMany(sampleCategories)
+        // await Subcategories.insertMany(sampleSubCategories)
+
         console.log("Data imported!");
         process.exit()
         
