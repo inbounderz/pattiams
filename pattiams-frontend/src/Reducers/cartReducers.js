@@ -81,7 +81,7 @@ export const cartCreateReducer = (state = {}, action) => {
 export const cartItemsReducer = (state = { products: [], shippingAddress: {}, paymentMethod: "" }, action) => {
   switch (action.type) {
     case GET_CART_ITEM_REQUEST:
-      return { loading: true, products: [] };
+      return { loading: true };
     case GET_CART_ITEM_SUCCESS:
       return { loading: false, success: true, products: action.payload };
     case GET_CART_ITEM_FAIL:

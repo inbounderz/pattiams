@@ -50,6 +50,9 @@ const SingleProduct = () => {
   const { success: successProductReview, error: errorProductReview } =
     productReviewCreate;
 
+  const cartCreate = useSelector((state) => state.cartCreate);
+  const { success } = cartCreate;
+
   const productsByCategory = useSelector((state) => state.productsByCategory);
   const {
     loading: productCategoryLoading,
@@ -103,7 +106,7 @@ const SingleProduct = () => {
       };
   
       dispatch(createCart(productAdded));
-      navigate('/cart')
+        navigate('/cart')
     } else {
       navigate('/login?goto=cart')
     }
