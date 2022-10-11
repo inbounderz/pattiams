@@ -28,10 +28,12 @@ const ShippingScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(
-      saveShippingAddress({ name, phone, flat, area, postalCode, landmark, city, state })
-    );
-    navigate("/payment");
+    if(phone.length >= 10) {
+      dispatch(
+        saveShippingAddress({ name, phone, flat, area, postalCode, landmark, city, state })
+      );
+      navigate("/payment");
+    }
   };
 
   const states = [
@@ -112,6 +114,7 @@ const ShippingScreen = () => {
                     type="number"
                     value={phone}
                     required
+                    min="10"
                     onChange={(e) => setPhone(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
@@ -145,6 +148,7 @@ const ShippingScreen = () => {
                     placeholder="6 digits [0-9] PIN code"
                     value={postalCode}
                     required
+                    minlength="6"
                     onChange={(e) => setPostalCode(e.target.value)}
                   ></Form.Control>
                 </Form.Group>

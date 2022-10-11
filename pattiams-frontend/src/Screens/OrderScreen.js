@@ -89,7 +89,7 @@ const OrderScreen = () => {
     const { data } = await axios.post(`/razorpay/${id}`);
 
     const options = {
-      key: "rzp_test_kOed27tvxfC1UZ",
+      key: "rzp_live_n3kZPGXkI0GqVK",
       currency: data.currency,
       amount: data.amount.toString(),
       order_id: data.id,
