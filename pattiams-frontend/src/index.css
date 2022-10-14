@@ -368,3 +368,12 @@ ul.thumb li img {
     text-align: justify;
 }
 /* About screen stylings ends here */
+
+/* Directors screen stylings starts here */
+.designation {
+    font-size: 14px;
+}
+.person-name {
+    font-size: 14px;
+}
+/* Directors screen stylings ends here */

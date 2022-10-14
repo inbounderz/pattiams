@@ -27,6 +27,7 @@ import AyurvedaProductsPage from "./Screens/AyurvedaProductsPage";
 import CareersScreen from "./Screens/CareersScreen";
 import ContactScreen from "./Screens/ContactScreen";
 import TermsScreen from "./Screens/TermsScreen";
+import Directors from "./Screens/Directors";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
         <Route path="/careers" element={<CareersScreen />} />
         <Route path="/contact" element={<ContactScreen />} />
         <Route path="/terms" element={<TermsScreen />} />
+        <Route path="/directors" element={<Directors />} />
       </Routes>
       <Footer />
     </Router>

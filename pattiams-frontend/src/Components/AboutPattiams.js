@@ -66,6 +66,7 @@ const AboutPattiams = () => {
               <img
                 className="founder-img-in-mobile"
                 src="images/chairman.jpeg"
+                alt="img"
               />
               <span className="directors-name">Chairman</span>
               <span className="directors-subhead">ANAND KP</span>
@@ -85,17 +86,20 @@ const AboutPattiams = () => {
             </span>
             <div className="d-flex justify-content-evenly">
               <div className="col-4 d-flex flex-column align-items-center">
-                <img className="executives-mob" src="images/md.jpeg" />
+                <img className="executives-mob" src="images/md.jpeg" alt="img"/>
                 <span className="directors-name">Managing Director</span>
                 <span className="directors-subhead-2">C PRAKASHAN</span>
               </div>
 
               <div className="col-4 d-flex flex-column align-items-center">
-                <img className="executivesed-mob" src="images/ed.jpeg" />
+                <img className="executivesed-mob" src="images/ed.jpeg" alt="img"/>
                 <span className="directors-name">Executive Director</span>
                 <span className="directors-subhead-2">A RAMACHANDRAN</span>
               </div>
             </div>
+              <Link to={`/directors`} className="text-decoration-none">
+                  <HomepageButton text={"View all"} />
+                </Link>
           </div>
         </Container>
       </div>
