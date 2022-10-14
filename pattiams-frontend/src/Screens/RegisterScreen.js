@@ -80,7 +80,7 @@ const RegisterScreen = () => {
             type="number"
             placeholder="Enter Mobile Number"
             value={number}
-            minlength="10"
+            minLength="10"
             onChange={(e) => setNumber(e.target.value)}
           ></Form.Control>
         </Form.Group>
@@ -90,7 +90,7 @@ const RegisterScreen = () => {
             type="password"
             placeholder="Enter Password"
             value={password}
-            minlength="6"
+            minLength="6"
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
@@ -100,7 +100,7 @@ const RegisterScreen = () => {
             type="password"
             placeholder="Confirm Password"
             value={confirmPassword}
-            minlength="6"
+            minLength="6"
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>

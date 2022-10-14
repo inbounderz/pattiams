@@ -12,6 +12,8 @@ import subCategories from "./data/subCategories.js";
 import Subcategories from "./models/subcategoryModel.js";
 import CartItem from "./models/cartModel.js";
 import cart from './data/cart.js';
+import otp from './data/otp.js';
+import Otp from "./models/otpModel.js";
 
 dotenv.config();
 
@@ -50,6 +52,12 @@ const importData = async ()=> {
         // await Product.insertMany(sampleProducts)
         // await Category.insertMany(sampleCategories)
         // await Subcategories.insertMany(sampleSubCategories)
+
+        // const sampleOtp = await otp.map((ot) => {
+        //     return { ...ot }
+        // })
+
+        // await Otp.insertMany(sampleOtp);
 
         console.log("Data imported!");
         process.exit()

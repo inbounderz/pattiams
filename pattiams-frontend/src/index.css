@@ -149,6 +149,11 @@ ul.thumb li img {
     max-width: 100%;
     object-fit: contain;
 }
+.forget-pw {
+    margin-top: 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
 /* Login screen stylings ends here */
 
 /* Profile screen stylings starts here */

@@ -20,7 +20,7 @@ const AdminSidebar = () => {
       </div>
       <div className="sidebar-center">
         <ul className="list">
-          <Link
+          {/* <Link
             to="/admin-dashboard"
             className="text-decoration-none li-link-class"
           >
@@ -31,7 +31,7 @@ const AdminSidebar = () => {
               <i className="list-item-icon fas fa-home"></i>
               <span className="list-item-text">Dashboard</span>
             </li>
-          </Link>
+          </Link> */}
           <Link
             to="/admin-userslist"
             className="text-decoration-none li-link-class"

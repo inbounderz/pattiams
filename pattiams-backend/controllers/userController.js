@@ -1,6 +1,8 @@
 import asyncHandler from "express-async-handler";
 import generateToken from "../utils/generateToken.js";
 import User from "../models/userModel.js";
+import Otp from "../models/otpModel.js";
+import { mail } from '../config/mailer.js';
 
 // AUTH USER AND GET TOKEN
 // @router '/api/users/login'
@@ -8,7 +10,9 @@ import User from "../models/userModel.js";
 const authUser = asyncHandler(async (req, res) => {
   const { emailorMobile, password } = req.body;
   const userEntry = emailorMobile.toString();
-  const user = await User.findOne({ $or:[{ 'email': userEntry }, {'number': userEntry}] });
+  const user = await User.findOne({
+    $or: [{ email: userEntry }, { number: userEntry }],
+  });
 
   if (user && (await user.matchPassword(password))) {
     res.json({
@@ -172,6 +176,65 @@ const updateUser = asyncHandler(async (req, res) => {
   }
 });
 
+// UPDATE USER BY ID
+// @router UPDATE /api/users/:id
+// @access public
+const getOtp = asyncHandler(async (req, res) => {
+
+  const { resetEmail } = req.body;
+
+  const existingUser = await User.findOne({ email: resetEmail });
+  if (existingUser) {
+    let otpcode = Math.floor(Math.random() * 10000 + 1);
+    let otpData = new Otp({
+      email: resetEmail,
+      otp: otpcode,
+      expiresIn: new Date().getTime() + 300 * 1000,
+    });
+    let otpResponse = await otpData.save();
+    if (otpResponse) {
+      mail(resetEmail, otpcode)
+      res.status(201).json({
+        message: "Success",
+      });
+    }
+  } else {
+    res.status(400);
+    throw new Error("User does not exist");
+  }
+});
+
+const resetPassword = asyncHandler(async (req,res) => {
+  const { resetEmail, otp, newPassword } = req.body;
+
+  let data = await Otp.findOne({email: resetEmail, otp: otp})
+
+  if (data) {
+    const currentTime = new Date().getTime();
+    const diff = data.expiresIn - currentTime;
+    if(diff < 0){
+      res.status(400);
+      throw new Error("OTP expired. Please try again");
+    } else {
+      const user = await User.findOne({email: resetEmail});
+      user.password = newPassword;
+      const updatedUser = user.save();
+      
+      res.json({
+        _id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        number: updatedUser.number,
+        isAdmin: updatedUser.isAdmin,
+        token: generateToken(updatedUser._id),
+      });
+    }
+  }else{
+    res.status(400);
+    throw new Error("Some error occured. Please check the OTP entered");
+  }
+})
+
 export {
   authUser,
   getUserProfile,
@@ -180,5 +243,7 @@ export {
   getUsers,
   deleteUser,
   getUserById,
-  updateUser
+  updateUser,
+  getOtp,
+  resetPassword
 };
