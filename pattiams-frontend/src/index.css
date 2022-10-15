@@ -320,9 +320,8 @@ ul.thumb li img {
 }
 .chairman-img {
     max-width: 400px;
-    margin: 40px 0px;
+    margin: 25px 0px;
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .executives {
     max-width: 140px;
@@ -375,5 +374,17 @@ ul.thumb li img {
 }
 .person-name {
     font-size: 14px;
+}
+.designation-c {
+    font-size: 18px;
+}
+.person-name-c {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.chairman-img-2 {
+    max-width: 400px;
+    margin-top: 25px;
+    border-radius: 10px;
 }
 /* Directors screen stylings ends here */

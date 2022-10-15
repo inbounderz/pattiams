@@ -36,13 +36,12 @@ const MessageTabs = () => {
             <Row>
               <div className="col-12 d-flex flex-column align-items-center">
                 <span className="m-3">
-                  Greetings.<br /> It is indeed heartening for me to address all of
-                  you through this website, as Chairman of Pattiam Social
-                  Service Society. Pattiams is formed to eradicate unemployment
-                  through the construction of various employment opportunities...
+                  Welcome! Let me convey some of the company's aims, ideals, and
+                  plans to you, our valuable customer.<br />The main aim of Pattiam's
+                  has been employment generation in local rural communities.
                 </span>
                 <Link to={`/message`} className="text-decoration-none">
-                <HomepageButton text="Read More" />
+                  <HomepageButton text="Read More" />
                 </Link>
               </div>
             </Row>
@@ -56,17 +55,21 @@ const MessageTabs = () => {
           <hr />
           <div className="row">
             <div className="col-6 d-flex flex-column align-items-center">
-              <img className="executives" src="images/md.jpeg" alt="img"/>
+              <img className="executives" src="images/c-prakashan.png" alt="img" />
               <span className="mt-2">Managing Director</span>
-              <span><strong>C PRAKASHAN</strong></span>
+              <span>
+                <strong>C PRAKASHAN</strong>
+              </span>
             </div>
             <div className="col-6 d-flex flex-column align-items-center">
-              <img className="executivesd" src="images/ed.jpeg" alt="img"/>
+              <img className="executivesd" src="images/ed.jpeg" alt="img" />
               <span className="mt-2">Executive Director</span>
-              <span><strong>A RAMACHANDRAN</strong></span>
+              <span>
+                <strong>A RAMACHANDRAN</strong>
+              </span>
             </div>
             <Link to={`/directors`} className="text-decoration-none">
-                <HomepageButton text="View all" />
+              <HomepageButton text="View all" />
             </Link>
           </div>
         </div>

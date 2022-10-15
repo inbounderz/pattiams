@@ -71,11 +71,10 @@ const AboutPattiams = () => {
               <span className="directors-name">Chairman</span>
               <span className="directors-subhead">ANAND KP</span>
               <span className="text-center">
-                Greetings.
-                <br /> It is indeed heartening for me to address all of you
-                through this website, as Chairman of Pattiam Social Service
-                Society. Pattiams is formed to eradicate unemployment through
-                the construction of various employment opportunities...
+                Welcome! Let me convey some of the company's aims,
+                ideals, and plans to you, our valuable customer.<br />The main aim of
+                Pattiam's has been employment generation in local rural
+                communities.
                 <Link to={`/message`} className="text-decoration-none">
                   <HomepageButton text={"Read more"} />
                 </Link>
@@ -86,20 +85,28 @@ const AboutPattiams = () => {
             </span>
             <div className="d-flex justify-content-evenly">
               <div className="col-4 d-flex flex-column align-items-center">
-                <img className="executives-mob" src="images/md.jpeg" alt="img"/>
+                <img
+                  className="executives-mob"
+                  src="images/md.jpeg"
+                  alt="img"
+                />
                 <span className="directors-name">Managing Director</span>
                 <span className="directors-subhead-2">C PRAKASHAN</span>
               </div>
 
               <div className="col-4 d-flex flex-column align-items-center">
-                <img className="executivesed-mob" src="images/ed.jpeg" alt="img"/>
+                <img
+                  className="executivesed-mob"
+                  src="images/ed.jpeg"
+                  alt="img"
+                />
                 <span className="directors-name">Executive Director</span>
                 <span className="directors-subhead-2">A RAMACHANDRAN</span>
               </div>
             </div>
-              <Link to={`/directors`} className="text-decoration-none">
-                  <HomepageButton text={"View all"} />
-                </Link>
+            <Link to={`/directors`} className="text-decoration-none">
+              <HomepageButton text={"View all"} />
+            </Link>
           </div>
         </Container>
       </div>

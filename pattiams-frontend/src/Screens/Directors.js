@@ -12,16 +12,23 @@ const Directors = () => {
 
   return (
     <div className="container">
+      <div className="d-flex align-items-center flex-column">
+          <img src="images/chairman.jpeg" className="chairman-img-2 img-fluid" alt="img"/>
+          <span className="mt-2 designation-c">Chairman</span>
+          <span className="person-name-c">
+            <strong>ANAND KP</strong>
+          </span>
+      </div>
       <h3 className="text-center my-3">Directors</h3>
-      <div className="row justify-content-center">
-        <div className="col-6 col-xl-2 d-flex flex-column align-items-center mb-3">
-          <img src="images/md.jpeg" className="executives" alt="img"/>
+      <div className="row justify-content-center mt-4">
+        <div className="col-6 col-lg-2 d-flex flex-column align-items-center mb-3">
+          <img src="images/c-prakashan.png" className="executives" alt="img"/>
           <span className="mt-2 designation">Managing Director</span>
           <span className="person-name">
             <strong>C PRAKASHAN</strong>
           </span>
         </div>
-        <div className="col-6 col-xl-2 d-flex flex-column align-items-center mb-3">
+        <div className="col-6 col-lg-2 d-flex flex-column align-items-center mb-3">
           <img src="images/ed.jpeg" className="executives" alt="img"/>
           <span className="mt-2 designation">Executive Director</span>
           <span className="person-name">
@@ -29,7 +36,7 @@ const Directors = () => {
           </span>
         </div>
       </div>
-      <div className="row my-5 ">
+      <div className="row my-5 justify-content-center">
         <div className="mb-3 col-6 col-md-4 col-lg-2 d-flex flex-column align-items-center">
           <img
             src="images/pradeep-kumar.png"
