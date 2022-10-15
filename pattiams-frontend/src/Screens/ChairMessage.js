@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 
 const AboutPattiams = () => {
-
   const onTop = () => {
     window.scrollTo(0, 0);
   };
@@ -18,37 +17,37 @@ const AboutPattiams = () => {
         <img className="chairman-img img-fluid" src="images/chairman.jpeg" />
       </div>
       <div className="long-paras">
-      <p>Greetings.</p>
-      <p>
-        It is indeed heartening for me to address all of you through this
-        website, as Chairman of Pattiam Social Service Society. Pattiams is
-        formed to eradicate unemployment through the construction of various
-        employment opportunities needed for the people in our society. There are
-        a lot of risk factors for achieving the goals, but our teamwork can
-        simplify all these risks to attain the final goal.
-      </p>
-      <p>
-        The people or their families in our organization are very happy, and
-        performing their roles perfectly in all areas of their activities. We
-        are aiming to reach zero defects in products, in communication or in all
-        our services. We are also introducing various product ranges including
-        Traditional Ayurvedic, Panchakarma Treatment, Manufacture Furniture with
-        Plantation and Traditional woods, Beauty Care Products etc…
-      </p>
-      <p>
-        All the people are invited to join our Pattiams family and support our
-        programs.
-      </p>
-      <p>
-        To conclude, I highlight the word- 'TEAM WORK', consisting of the
-        complete employees having unequalled efficiency and consummate
-        capability, to derive the right decisions behind all our
-        accomplishments.
-      </p>
+        <p>Greetings.</p>
+        <p>
+          Welcome! Let me convey some of the company's aims, ideals, and plans
+          to you, our valuable customer.
+        </p>
+        <p>
+          The main aim of Pattiam's has been employment generation in local
+          rural communities. We focus on surmounting the challenges we face and
+          achieving our goals through teamwork. The people employed in our
+          organization are happy workers who diligently perform their tasks. The
+          organization extends its support to employees' families, as well. We
+          aim to reach perfection in our products and services and offer prompt
+          communication. We are currently introducing new product ranges
+          including traditional ayurvedic wellness products, panchakarma
+          treatment, furniture made of plantation and traditional woods, beauty
+          care and cosmetic products, and so on.
+        </p>
+        <p>
+          To conclude, I emphasize our core value of TEAM WORK, honouring each
+          of our employees, who have shown unparalleled efficiency, for their
+          decisions that have led the company to its accomplishments.
+        </p>
+        <p>
+          We invite you to join the Pattiam's family and support our programs.
+        </p>
       </div>
       Regards
       <br />
-      <strong>Anand K P</strong><br />Chairman
+      <strong>Anand K P</strong>
+      <br />
+      Chairman
     </Container>
   );
 };
