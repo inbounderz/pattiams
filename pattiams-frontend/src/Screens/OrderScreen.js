@@ -103,9 +103,9 @@ const OrderScreen = () => {
         alert("Transaction successful");
       },
       prefill: {
-        name: "Pattiams_Ayurveda",
-        email: "designinbounderz@gmail.com",
-        phone_number: "9876543210",
+        name: "Pattiams",
+        email: "",
+        phone_number: "",
       },
     };
     const paymentObject = new window.Razorpay(options);
@@ -192,15 +192,15 @@ const OrderScreen = () => {
                       <Row>
                         <Col md={1}>
                           <Image
-                            src={item.image}
-                            alt={item.name}
+                            src={item.productImage}
+                            alt={item.productImage}
                             fluid
                             rounded
                           />
                         </Col>
                         <Col>
                           <Link to={`/product/${item.product}`}>
-                            {item.name}
+                            {item.productName}
                           </Link>
                         </Col>
                         <Col md={4}>

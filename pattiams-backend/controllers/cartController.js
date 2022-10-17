@@ -3,7 +3,7 @@ import CartItem from "../models/cartModel.js";
 import Product from "../models/productModel.js";
 
 // POST CREATE CART
-// @router '/api/cart/:id'
+// @router '/api/cart'
 // @access private/user
 const createCart = asyncHandler(async (req, res) => {
 
@@ -32,7 +32,7 @@ const createCart = asyncHandler(async (req, res) => {
 });
 
 // GET CART ITEMS
-// @router '/api/cart/cartitems/:id'
+// @router '/api/cart/:id'
 // @access private/user
 const getCartItems = asyncHandler(async (req, res) => {
     

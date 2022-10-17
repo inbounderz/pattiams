@@ -22,10 +22,6 @@ const ProductListScreen = () => {
   const productsByCategory = useSelector((state) => state.productsByCategory);
   const { loading, products, error, page, pages } = productsByCategory;
 
-  products && products.map((product) => {
-    console.log(products);
-  })
-
   const listCategories = useSelector((state) => state.listCategory2);
   const {
     loading: loadingCategories,

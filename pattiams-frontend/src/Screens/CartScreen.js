@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Row,
@@ -43,7 +43,7 @@ const CartScreen = () => {
   const { userInfo } = userLogin;
 
   const deleteFromCart = useSelector((state) => state.deleteFromCart);
-  const { success } = deleteFromCart;
+  const { success:deleteSuccess } = deleteFromCart;
 
 
   // cartItems.find(cart=>cart.variant.some(vari => vari.model));
@@ -53,10 +53,10 @@ const CartScreen = () => {
   useEffect(() => {
 
     
-    if(!userInfo){
+    if(userInfo){
+      dispatch(getItemsFromCart());
+    }else{
       navigate('/login?goto=cart');
-    } else {
-        dispatch(getItemsFromCart());
     }
 
 
@@ -64,7 +64,7 @@ const CartScreen = () => {
     //   dispatch(addToCart(id, qty, variant, price));
     // }
 
-  }, [userInfo, navigate, dispatch, success]);
+  }, [userInfo, navigate, dispatch, deleteSuccess]);
 
   const removeFromCartHandler = (id) => {
     if (window.confirm("Are you sure?")) {
@@ -78,17 +78,15 @@ const CartScreen = () => {
 
   return (
     <Container className="cartscreen">
-      <Row className="d-none d-md-flex">
+      <Row className="d-none d-lg-flex">
         <Col md={8}>
           <h1>Shopping cart</h1>
-          {loading && <Loader/>}
-          {products && products.length === 0 ? (
+          {loading ? <Loader/> : products && products.length === 0 ? (
             <Message>
               Your cart is empty. <Link to="/">Go back</Link>
             </Message>
           ) : (
             <ListGroup variant="flush">
-              {loading && <Loader/>}
               {error && <Message variant={"danger"}>{error}</Message>}
               {products && products.map((item) => (
                 <ListGroup.Item key={item._id}>
@@ -181,7 +179,7 @@ const CartScreen = () => {
         </Col>
       </Row>
 
-      <div className="d-block d-md-none">
+      <div className="d-block d-lg-none">
         <h3 className="text-center">Shopping Cart</h3>
             <Card>
               <ListGroup variant="flush">
@@ -225,7 +223,7 @@ const CartScreen = () => {
           <>
             {products && products.map((item) => (
               <Row className="mx-1 my-2 product-in-cart" key={item._id}>
-                <Col xs={3}>
+                <Col xs={3} className="d-flex align-items-center">
                   <Image
                     className="cart-screen-img-mobile"
                     src={item.productImage}
@@ -247,13 +245,13 @@ const CartScreen = () => {
                     <span>₹{item && item.productVariant[0].price * item.qty}</span>
                   </div>
                 </Col>
-                <Col xs={4} className="d-flex align-items-center">
+                <Col xs={4} className="d-flex align-items-center justify-content-end">
                   <Button
                     type="button"
                     variant="light"
                     onClick={() => removeFromCartHandler(item._id)}
                   >
-                    Remove<i className="fas fa-trash"></i>
+                    <span style={{fontSize: "10px"}}>Remove</span><i className="fas fa-trash"></i>
                   </Button>
                 </Col>
               </Row>

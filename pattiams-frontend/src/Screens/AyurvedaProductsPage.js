@@ -72,11 +72,9 @@ const AyurvedaProductsPage = () => {
               {error && <Message variant="danger">{error.message}</Message>}
               {products &&
                 products.map((product) => (
-                  <>
                     <Col md={3} key={product._id} className="mt-2 mt-lg-5">
                       <OneProductCard2 product={product} />
                     </Col>
-                  </>
                 ))}
             </Row>
 
@@ -85,11 +83,9 @@ const AyurvedaProductsPage = () => {
               {error && <Message variant="danger">{error.message}</Message>}
               {products &&
                 products.map((product) => (
-                  <>
-                    <Col md={4} className="mt-2 mt-lg-5">
+                    <Col md={4} key={product._id} className="mt-2 mt-lg-5">
                       <OneProductCard2 product={product} />
                     </Col>
-                  </>
                 ))}
             </Row>
 
@@ -99,11 +95,9 @@ const AyurvedaProductsPage = () => {
 
               {products &&
                 products.map((product) => (
-                  <>
-                    <Col md={6} className="mt-2 mt-lg-5">
+                    <Col md={6} key={product._id} className="mt-2 mt-lg-5">
                       <OneProductCard2 product={product} />
                     </Col>
-                  </>
                 ))}
             </Row>
 
