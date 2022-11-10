@@ -45,7 +45,12 @@ const LoginScreen = () => {
     setPasswordType("password");
   };
 
+  const onTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
+    onTop();
     if (userInfo) {
       navigate(`/${redirect}`);
     }

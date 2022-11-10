@@ -12,13 +12,13 @@ const MainBanner = () => {
           <Link to={`productlist/ayurveda`} className="text-decoration-none">
             <img
               className="d-none d-md-block w-100"
-              src="images/ayurveda-pc-new.png"
+              src="images/ayurveda-pc-new.jpg"
               alt="Second slide"
             />
             <div className="d-block d-md-none mobile-banner-div">
               <img
                 className="w-100"
-                src="images/ayurveda-mob-new.png"
+                src="images/ayurveda-mob-new.jpg"
                 alt="Second slide"
               />
             </div>
@@ -29,13 +29,13 @@ const MainBanner = () => {
           <Link to={`productlist/beautycare`} className="text-decoration-none">
             <img
               className="d-none d-md-block w-100"
-              src="images/beautycare-pc.png"
+              src="images/beautycare-pc.jpg"
               alt="Third slide"
             />
             <div className="d-block d-md-none mobile-banner-div">
               <img
                 className="w-100"
-                src="images/beautycare-mob.png"
+                src="images/beautycare-mob.jpg"
                 alt="Third slide"
               />
             </div>
@@ -49,13 +49,13 @@ const MainBanner = () => {
           >
             <img
               className="d-none d-md-block w-100"
-              src="images/foods-pc-new.png"
+              src="images/foods-pc-new.jpg"
               alt="Third slide"
             />
             <div className="d-block d-md-none mobile-banner-div">
               <img
                 className="w-100"
-                src="images/foods-mob-new.png"
+                src="images/foods-mob-new.jpg"
                 alt="Third slide"
               />
             </div>
@@ -69,13 +69,13 @@ const MainBanner = () => {
           <Link to={`productlist/furniture`} className="text-decoration-none">
             <img
               className="d-none d-md-block w-100"
-              src="images/furniture-pc-new.png"
+              src="images/furniture-pc-new.jpg"
               alt="Third slide"
             />
             <div className="d-block d-md-none mobile-banner-div">
               <img
                 className="w-100"
-                src="images/furniture-mob-new.png"
+                src="images/furniture-mob-new.jpg"
                 alt="Third slide"
               />
             </div>
@@ -90,13 +90,13 @@ const MainBanner = () => {
           >
             <img
               className="d-none d-md-block w-100"
-              src="images/abhyanga-pc-new.png"
+              src="images/abhyanga-pc-new.jpg"
               alt="First slide"
             />
             <div className="d-block d-md-none mobile-banner-div">
               <img
                 className="w-100"
-                src="images/abhyanga-mob-new.png"
+                src="images/abhyanga-mob-new.jpg"
                 alt="First slide"
               />
             </div>
