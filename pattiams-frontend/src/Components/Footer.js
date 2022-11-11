@@ -83,26 +83,50 @@ const Footer = () => {
                 <br />
 
                 <div className="d-flex mt-5">
-                  <img
-                    className="me-3"
-                    src="/images/pattiams_fb_icon.svg"
-                    alt="pattiams_fb_icon"
-                  />
-                  <img
-                    className="me-3"
-                    src="/images/pattiams_insta_icon.svg"
-                    alt="pattiams_insta_icon"
-                  />
-                  <img
-                    className="me-3"
-                    src="/images/pattiams_twitter_icon.svg"
-                    alt="pattiams_twitter_icon"
-                  />
-                  <img
-                    className="me-3"
-                    src="/images/pattiams_youtube_icon.svg"
-                    alt="pattiams_youtube_icon"
-                  />
+                  <a
+                    href={`https://www.facebook.com/profile.php?id=100084218920414`}
+                    className="text-decoration-none"
+                    target="_blank"
+                  >
+                    <img
+                      className="me-3"
+                      src="/images/pattiams_fb_icon.svg"
+                      alt="pattiams_fb_icon"
+                    />
+                  </a>
+                  <a
+                    href={`https://www.instagram.com/pattiamsayurveda/`}
+                    className="text-decoration-none"
+                    target="_blank"
+                  >
+                    <img
+                      className="me-3"
+                      src="/images/pattiams_insta_icon.svg"
+                      alt="pattiams_insta_icon"
+                    />
+                  </a>
+                  <a
+                    href={`https://www.twitter.com`}
+                    className="text-decoration-none"
+                    target="_blank"
+                  >
+                    <img
+                      className="me-3"
+                      src="/images/pattiams_twitter_icon.svg"
+                      alt="pattiams_twitter_icon"
+                    />
+                  </a>
+                  <a
+                    href={`https://www.youtube.com`}
+                    className="text-decoration-none"
+                    target="_blank"
+                  >
+                    <img
+                      className="me-3"
+                      src="/images/pattiams_youtube_icon.svg"
+                      alt="pattiams_youtube_icon"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -112,10 +136,7 @@ const Footer = () => {
                 All Rights
                 Reserved&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Designed
                 by{" "}
-                <a
-                  href="https://www.inbounderz.com"
-                  className="text-dark"
-                >
+                <a href="https://www.inbounderz.com" className="text-dark">
                   Inbounderz
                 </a>
               </span>
@@ -215,7 +236,11 @@ const Footer = () => {
             </div>
 
             <div className="d-flex justify-content-center mb-3">
-              <a href={`https://facebook.com`} className="text-decoration-none">
+              <a
+                href={`https://www.facebook.com/profile.php?id=100084218920414`}
+                className="text-decoration-none"
+                target="_blank"
+              >
                 <img
                   className="mx-3"
                   src="/images/pattiams_fb_icon.svg"
@@ -223,8 +248,9 @@ const Footer = () => {
                 />
               </a>
               <a
-                href={`https://instagram.com`}
+                href={`https://www.instagram.com/pattiamsayurveda/`}
                 className="text-decoration-none"
+                target="_blank"
               >
                 <img
                   className="mx-3"
@@ -232,25 +258,34 @@ const Footer = () => {
                   alt="pattiams_insta_icon"
                 />
               </a>
-              <img
-                className="mx-3"
-                src="/images/pattiams_twitter_icon.svg"
-                alt="pattiams_twitter_icon"
-              />
-              <img
-                className="mx-3"
-                src="/images/pattiams_youtube_icon.svg"
-                alt="pattiams_youtube_icon"
-              />
+              <a
+                href={`https://www.twitter.com`}
+                className="text-decoration-none"
+                target="_blank"
+              >
+                <img
+                  className="mx-3"
+                  src="/images/pattiams_twitter_icon.svg"
+                  alt="pattiams_twitter_icon"
+                />
+              </a>
+              <a
+                href={`https://www.youtube.com`}
+                className="text-decoration-none"
+                target="_blank"
+              >
+                <img
+                  className="mx-3"
+                  src="/images/pattiams_youtube_icon.svg"
+                  alt="pattiams_youtube_icon"
+                />
+              </a>
             </div>
             <div className="d-flex align-items-center flex-column">
               <span className="footer-bottom-text">&#169;Pattiam's</span>
               <span className="footer-bottom-text text-center">
                 All Rights Reserved | Designed by{" "}
-                <a
-                  href="https://www.inbounderz.com"
-                  className="text-dark"
-                >
+                <a href="https://www.inbounderz.com" className="text-dark">
                   Inbounderz
                 </a>
               </span>

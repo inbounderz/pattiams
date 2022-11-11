@@ -12,8 +12,7 @@ export const addToWishlist = (id) => async (dispatch, getState) => {
       name: data.name,
       image: data.image,
       variant: data.variant,
-      discountPrice: data.discountPrice,
-      countInStock: data.countInStock,
+      category: data.category
     },
   })
 

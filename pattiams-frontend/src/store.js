@@ -93,7 +93,7 @@ const productVariantFromStorage = localStorage.getItem("productVariant")
 //Get the wishlist items from the storage
 const wishlistFromStorage = localStorage.getItem("wishlistItems")
   ? JSON.parse(localStorage.getItem("wishlistItems"))
-  : null;
+  : [];
 
 const initialState = {
   cart: {

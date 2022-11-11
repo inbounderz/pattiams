@@ -24,8 +24,6 @@ const WishlistScreen = () => {
   const wishlist = useSelector((state) => state.wishlist);
   const { wishlistItems } = wishlist;
 
-  
-
   const removeFromWishlistHandler = (id) => {
     if (window.confirm("Are you sure?")) {
       dispatch(removeFromWishlist(id));
@@ -53,7 +51,8 @@ const WishlistScreen = () => {
                       <Col md={2}>
                         <Link to={`/product/${item.category}/${item.product}`}>{item.name}</Link>
                       </Col>
-                      <Col md={3}>₹{item.variant[0].price} onwards
+                      <Col md={3}>
+                        ₹{item.variant[0].price} onwards
                       </Col>
                       <Col md={3}>
                       <Link to={`/product/${item.category}/${item.product}`} className="text-decoration-none">
