@@ -12,22 +12,24 @@ const Directors = () => {
 
   return (
     <div className="container">
-      <div className="d-flex align-items-center flex-column">
+      <div className="row text-center justify-content-center">
+        <div className="col-12 col-md-4 d-flex flex-column">
           <img src="images/chairman.jpeg" className="chairman-img-2 img-fluid" alt="img"/>
           <span className="mt-2 designation-c">Chairman</span>
           <span className="person-name-c">
             <strong>ANAND KP</strong>
           </span>
-      </div>
-      <h3 className="text-center my-3">Directors</h3>
-      <div className="row justify-content-center mt-4">
-        <div className="col-6 col-lg-2 d-flex flex-column align-items-center mb-3">
-          <img src="images/c-prakashan.png" className="executives" alt="img"/>
-          <span className="mt-2 designation">Managing Director</span>
-          <span className="person-name">
+        </div>
+        <div className="col-12 col-md-4 d-flex flex-column">
+          <img src="images/md.png" className="chairman-img-2 img-fluid" alt="img"/>
+          <span className="mt-2 designation-c">Managing Director</span>
+          <span className="person-name-c">
             <strong>C PRAKASHAN</strong>
           </span>
         </div>
+      </div>
+      <h3 className="text-center my-3">Directors</h3>
+      <div className="row justify-content-center mt-4">
         <div className="col-6 col-lg-2 d-flex flex-column align-items-center mb-3">
           <img src="images/ed.jpeg" className="executives" alt="img"/>
           <span className="mt-2 designation">Executive Director</span>

@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { listOrders } from "../Actions/orderActions";
+import moment from 'moment';
 
 import AdminSidebar from "../Components/AdminSidebar";
 
@@ -54,15 +55,15 @@ const AdminOrderListScreen = () => {
                 </tr>
               </thead>
               <tbody>
-                {orders.map((order) => (
+                {orders.sort((a, b) => a.createdAt < b.createdAt ? 1 : -1).map((order) => (
                   <tr key={order._id}>
                     <td>{order._id}</td>
                     <td>{order.user && order.user.name}</td>
-                    <td>{order.createdAt}</td>
+                    <td>{moment(order.createdAt).utc().format('DD/MM/YYYY')}</td>
                     <td>{order.totalPrice}</td>
                     <td>
                       {order.isPaid ? (
-                        order.paidAt
+                        moment(order.paidAt).utc().format('DD/MM/YYYY')
                       ) : (
                         <i
                           className="fas fa-times"
@@ -72,7 +73,7 @@ const AdminOrderListScreen = () => {
                     </td>
                     <td>
                       {order.isDelivered ? (
-                        order.deliveredAt
+                        moment(order.deliveredAt).utc().format('DD/MM/YYYY')
                       ) : (
                         <i
                           className="fas fa-times"

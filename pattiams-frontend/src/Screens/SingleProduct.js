@@ -324,19 +324,7 @@ const SingleProduct = () => {
                 </button>
               </div>
 
-              <Row className="mt-5">
-                <span className="label-text">Benefits:</span>
-                <ul>
-                  {benefit &&
-                    benefit.map((ben, index) => (
-                      <li className="product-desc-list" key={index}>
-                        {ben}
-                      </li>
-                    ))}
-                </ul>
-              </Row>
-
-              <hr />
+                  <hr />
 
               <Row className="mt-5 product-desc">
                 <span className="desc-subhead">Description:</span>
@@ -351,9 +339,22 @@ const SingleProduct = () => {
                 <span className="product-desc-text">
                   {product.howToUse && product.howToUse}
                 </span>
+                
+                  {benefit && <span className="desc-subhead">Benefits:</span>}
+                
+                <ul>
+                  {benefit &&
+                    benefit.map((ben, index) => (
+                      <li className="product-desc-list" key={index}>
+                        {ben}
+                      </li>
+                    ))}
+                </ul>
               </Row>
+
             </Col>
           </Row>
+
         )}
 
         <Row className="mt-5">

@@ -32,9 +32,12 @@ const PlaceOrderScreen = () => {
   //   0
   // );
 
+  console.log(cartItems2);
+
   cartItems2.itemsPrice = cartItems2.products.reduce((acc, item) => acc + Number(item.qty) * (item.price), 0);
 
   cartItems2.shippingPrice = cartItems2.itemsPrice > 199 ? 0 : 60;
+  
   cartItems2.taxPrice = Number((0.15 * cartItems2.itemsPrice).toFixed(2));
   cartItems2.totalPrice = Number(
     cartItems2.itemsPrice + cartItems2.shippingPrice + cartItems2.taxPrice
