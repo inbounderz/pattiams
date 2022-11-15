@@ -19,6 +19,7 @@ const createCart = asyncHandler(async (req, res) => {
       productName: product.name,
       productImage: product.image,
       productVariant: product.variant[variant],
+      productCategory: product.category,
       qty,
       price,
     });

@@ -23,6 +23,10 @@ const cartSchema = mongoose.Schema(
       type: Array,
       required: true,
     },
+    productCategory: {
+      type: String,
+      required: true,
+    },
     qty: {
       type: Number,
       required: true,

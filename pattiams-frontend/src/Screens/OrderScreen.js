@@ -53,14 +53,14 @@ const OrderScreen = () => {
     if (!userInfo) {
       navigate("/login");
     }
-    if (!order || successPay || successDeliver || successShip) {
+    if (!order || successPay || successDeliver || successShip || order._id !== id) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch({ type: ORDER_DELIVER_RESET });
       dispatch({ type: ORDER_SHIP_RESET });
 
       dispatch(getOrderDetails(id));
     }
-  }, [dispatch, id, successPay, successDeliver, successShip, order]);
+  }, [dispatch, id, successPay, successDeliver, successShip, order, getOrderDetails]);
 
   const loadScript = (src) => {
     return new Promise((resolve) => {

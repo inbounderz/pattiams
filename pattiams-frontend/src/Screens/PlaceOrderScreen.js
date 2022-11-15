@@ -32,13 +32,23 @@ const PlaceOrderScreen = () => {
   //   0
   // );
 
-  console.log(cartItems2);
-
   cartItems2.itemsPrice = cartItems2.products.reduce((acc, item) => acc + Number(item.qty) * (item.price), 0);
 
-  cartItems2.shippingPrice = cartItems2.itemsPrice > 199 ? 0 : 60;
+  // cartItems2.shippingPrice = cartItems2.itemsPrice > 199 ? 0 : 60;
+  cartItems2.shippingPrice = 0;
+
+  cartItems2.taxPrice = 0;
   
-  cartItems2.taxPrice = Number((0.15 * cartItems2.itemsPrice).toFixed(2));
+  cartItems2.products.map((product) => {
+    if(product.productCategory==="ayurveda"){
+      cartItems2.taxPrice = cartItems2.taxPrice + Number((0.05 * product.price * product.qty).toFixed(2));
+    }else{
+      cartItems2.taxPrice = cartItems2.taxPrice + Number((0.18 * product.price * product.qty).toFixed(2));
+    }
+  })
+
+  cartItems2.taxPrice = Number(cartItems2.taxPrice.toFixed(2));
+
   cartItems2.totalPrice = Number(
     cartItems2.itemsPrice + cartItems2.shippingPrice + cartItems2.taxPrice
   );

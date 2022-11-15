@@ -91,6 +91,7 @@ export const getItemsFromCart = () => async (dispatch, getState) => {
 
     const { data } = await axios.get(`/api/cart`, config);
 
+
     dispatch({
       type: GET_CART_ITEM_SUCCESS,
       payload: data,

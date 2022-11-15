@@ -148,7 +148,7 @@ const ShippingScreen = () => {
                     placeholder="6 digits [0-9] PIN code"
                     value={postalCode}
                     required
-                    minlength="6"
+                    minLength="6"
                     onChange={(e) => setPostalCode(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
