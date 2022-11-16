@@ -52,7 +52,7 @@ const WishlistScreen = () => {
                         <Link to={`/product/${item.category}/${item.product}`}>{item.name}</Link>
                       </Col>
                       <Col md={3}>
-                        ₹{item.variant[0].price} onwards
+                      <span className="rupee-symbol">₹</span>{item.variant[0].price} onwards
                       </Col>
                       <Col md={3}>
                       <Link to={`/product/${item.category}/${item.product}`} className="text-decoration-none">
@@ -98,7 +98,7 @@ const WishlistScreen = () => {
                     wishlistItems.reduce((acc, item) => acc + Number(qty), 0)}
                   ) items
                 </h4>
-                ₹
+                <span className="rupee-symbol">₹</span>
                 {wishlistItems &&
                   wishlistItems
                     .reduce(

@@ -46,7 +46,7 @@ const OneProductCard = ({ product, showAlert }) => {
           <div className="price-and-button-div row">
             <div className="col-3">
               <span className="discounted-price">
-                ₹{product.variant && product.variant[0].price}
+              <span className="rupee-symbol">₹</span>{product.variant && product.variant[0].price}
               </span>
             </div>
             <div className="col-9 d-flex align-items-center justify-content-end">

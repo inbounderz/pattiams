@@ -33,6 +33,10 @@ const PlaceOrderScreen = () => {
   // );
 
   cartItems2.itemsPrice = cartItems2.products.reduce((acc, item) => acc + Number(item.qty) * (item.price), 0);
+  cartItems2.normalPrice = cartItems2.itemsPrice;
+
+  // 10% discount
+  cartItems2.itemsPrice = Number((cartItems2.itemsPrice - cartItems2.itemsPrice*0.10).toFixed(2));
 
   // cartItems2.shippingPrice = cartItems2.itemsPrice > 199 ? 0 : 60;
   cartItems2.shippingPrice = 0;
@@ -49,8 +53,15 @@ const PlaceOrderScreen = () => {
 
   cartItems2.taxPrice = Number(cartItems2.taxPrice.toFixed(2));
 
+  if (cartItems2.itemsPrice + cartItems2.taxtPrice<999) {
+    cartItems2.shippingPrice = 100
+  } else {
+    cartItems2.shippingPrice = 50
+  }
+
+
   cartItems2.totalPrice = Number(
-    cartItems2.itemsPrice + cartItems2.shippingPrice + cartItems2.taxPrice
+    (cartItems2.itemsPrice + cartItems2.shippingPrice + cartItems2.taxPrice).toFixed(2)
   );
 
   const orderCreate = useSelector(state => state.orderCreate)
@@ -134,7 +145,7 @@ const PlaceOrderScreen = () => {
                         <Col xs={4}>
                           {item.qty} X{" "}
                           {item.price}{" "}
-                          = ₹
+                          = <span className="rupee-symbol">₹</span>
                           {item.qty *
                             (item.price)}
                         </Col>
@@ -155,25 +166,29 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>₹{cartItems2.itemsPrice}</Col>
+                  <Col>
+                  <span className="rupee-symbol">₹</span><s>{cartItems2.normalPrice}</s>{' '}
+                  <span className="rupee-symbol">₹</span>{cartItems2.itemsPrice}{' '}
+                  <span style={{fontSize: "10px",color: "green"}}>(10% off)</span>
+                  </Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>₹{cartItems2.shippingPrice}</Col>
+                  <Col><span className="rupee-symbol">₹</span>{cartItems2.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>₹{cartItems2.taxPrice}</Col>
+                  <Col><span className="rupee-symbol">₹</span>{cartItems2.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>₹{cartItems2.totalPrice}</Col>
+                  <Col><span className="rupee-symbol">₹</span>{cartItems2.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>

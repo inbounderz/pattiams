@@ -49,7 +49,7 @@ const OneProductCard = ({ product, showAlert }) => {
           <div className="price-and-button-div row">
             <div className="col-3">
               <span className="discounted-price">
-                ₹{variantPrice ? variantPrice : "000"}
+              <span className="rupee-symbol">₹</span>{variantPrice ? variantPrice : "000"}
               </span>
             </div>
             <div className="col-9 d-flex align-items-center justify-content-end">

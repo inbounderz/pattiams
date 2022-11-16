@@ -34,7 +34,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 
     const createdOrder = await order.save();
     if(createdOrder) {
-      orderMail(req.user.email, orderItems)
+      orderMail(req.user.email, createdOrder)
       mailToAdmin(createdOrder)
     }
 
@@ -70,6 +70,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     order.paidAt = Date.now();
 
     const updatedOrder = await order.save();
+    
     res.json(updatedOrder);
   } else {
     res.status(404);

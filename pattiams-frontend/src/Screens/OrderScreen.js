@@ -206,11 +206,11 @@ const OrderScreen = () => {
                         <Col md={4}>
                           {item.qty} X{" "}
                           {item.discountPrice > 0 ? (
-                            <>₹{item.discountPrice}</>
+                            <><span className="rupee-symbol">₹</span>{item.discountPrice}</>
                           ) : (
-                            <>₹{item.price}</>
+                            <><span className="rupee-symbol">₹</span>{item.price}</>
                           )}{" "}
-                          = ₹
+                          = <span className="rupee-symbol">₹</span>
                           {item.qty *
                             (item.discountPrice > 0
                               ? item.discountPrice
@@ -233,25 +233,25 @@ const OrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>₹{order.itemsPrice}</Col>
+                  <Col><span className="rupee-symbol">₹</span>{order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>₹{order.shippingPrice}</Col>
+                  <Col><span className="rupee-symbol">₹</span>{order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>₹{order.taxPrice}</Col>
+                  <Col><span className="rupee-symbol">₹</span>{order.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>₹{order.totalPrice}</Col>
+                  <Col><span className="rupee-symbol">₹</span>{order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>

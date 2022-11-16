@@ -150,7 +150,7 @@ const Navigationbar = () => {
                   <div className="cart-and-price d-flex flex-column justify-content-center">
                     <span className="cart-text-header">My Cart</span>
                     <span className="cart-price-header">
-                      ₹
+                    <span className="rupee-symbol">₹</span>
                       {cartItems &&
                         cartItems
                           .reduce(

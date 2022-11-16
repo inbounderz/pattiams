@@ -255,10 +255,10 @@ const SingleProduct = () => {
                 <span>
                   Price:{" "}
                   {product.variant && product.variant.length === 1 && (
-                    <>₹{product.variant[0]?.price}</>
+                    <><span className="rupee-symbol">₹</span>{product.variant[0]?.price}</>
                   )}
                   {product.variant && product.variant.length !== 1 && (
-                    <>₹{product.variant[productVariant].price}</>
+                    <><span className="rupee-symbol"><span className="rupee-symbol">₹</span></span>{product.variant[productVariant].price}</>
                   )}
                   {/* {productSize && product.discountPrice[0] > 0 ? (
                     <>

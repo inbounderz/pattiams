@@ -126,7 +126,7 @@ const CartScreen = () => {
 
                     <Col md={2}>
                       <span>Price:&nbsp;</span>
-                      <span>₹{item && item.productVariant[0].price * item.qty}</span>
+                      <span><span className="rupee-symbol">₹</span>{item && item.productVariant[0].price * item.qty}</span>
                     </Col>
 
                     <Col md={1}>
@@ -154,7 +154,7 @@ const CartScreen = () => {
                     products.reduce((acc, item) => acc + Number(item.qty), 0)}
                   ) items
                 </h2>
-                ₹
+                <span className="rupee-symbol">₹</span>
                 {products &&
                   products
                     .reduce(
@@ -193,7 +193,7 @@ const CartScreen = () => {
                       )}
                     ) items
                   </h2>
-                  ₹
+                  <span className="rupee-symbol">₹</span>
                   {products &&
                     products
                       .reduce(
@@ -242,7 +242,7 @@ const CartScreen = () => {
                   </div>
                   <div>
                     <span>Price:&nbsp;</span>
-                    <span>₹{item && item.productVariant[0].price * item.qty}</span>
+                    <span><span className="rupee-symbol">₹</span>{item && item.productVariant[0].price * item.qty}</span>
                   </div>
                 </Col>
                 <Col xs={4} className="d-flex align-items-center justify-content-end">
