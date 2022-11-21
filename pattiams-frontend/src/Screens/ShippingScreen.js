@@ -19,6 +19,7 @@ const ShippingScreen = () => {
 
   const [name, setName] = useState(shippingAddress.name);
   const [phone, setPhone] = useState(shippingAddress.phone);
+  const [email, setEmail] = useState(shippingAddress.email);
   const [flat, setFlat] = useState(shippingAddress.flat);
   const [area, setArea] = useState(shippingAddress.area);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
@@ -30,7 +31,7 @@ const ShippingScreen = () => {
     e.preventDefault();
     if(phone.length >= 10) {
       dispatch(
-        saveShippingAddress({ name, phone, flat, area, postalCode, landmark, city, state })
+        saveShippingAddress({ name, phone, email, flat, area, postalCode, landmark, city, state })
       );
       navigate("/payment");
     }
@@ -116,6 +117,18 @@ const ShippingScreen = () => {
                     required
                     min="10"
                     onChange={(e) => setPhone(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
+
+                <Form.Group controlId="email" className="mt-4">
+                  <Form.Label>
+                    Email
+                  </Form.Label>
+                  <Form.Control
+                    type="email"
+                    value={email}
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
                 

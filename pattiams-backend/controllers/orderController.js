@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import { mailToAdmin, orderMail } from "../config/mailer.js";
+import { mailToAdmin, orderMail, shippingMail } from "../config/mailer.js";
 import Order from "../models/orderModel.js";
 
 // POST - CREATE NEW ORDERS
@@ -83,6 +83,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 // @access Private:admin
 const updateOrderToShipped = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
+  const { tracking, service } = req.body;
   if (order) {
     if (order.isPaid) {
       order.isShipped = true;
@@ -90,8 +91,10 @@ const updateOrderToShipped = asyncHandler(async (req, res) => {
       order.shippedAt = Date.now();
 
       const updatedOrder = await order.save();
-
-      res.json(updatedOrder);
+      if(updatedOrder){
+        shippingMail(order.shippingAddress.email, order.shippingAddress.name, tracking, service)
+        res.json(updatedOrder);
+      }
     } else {
       res.status(404);
       throw new Error("Amount not paid");

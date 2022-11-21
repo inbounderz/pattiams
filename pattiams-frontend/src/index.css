@@ -214,6 +214,11 @@ ul.thumb li img {
 .orderscreen {
     min-height: 100vh;
 }
+.select-shipping {
+    width: 100%;
+    background-color: #ce0e2d !important;
+    border: #CE0E2D !important;
+}
 /* Orderscreen stylings ends here */
 
 /* Product list screen styling starts here */

@@ -161,7 +161,7 @@ export const listOrders = () => async (dispatch, getState) => {
   }
 }
 
-export const shipOrder = (order) => async (dispatch, getState) => {
+export const shipOrder = (order, tracking, service) => async (dispatch, getState) => {
   try {
     dispatch({ type: ORDER_SHIP_REQUEST });
 
@@ -174,7 +174,7 @@ export const shipOrder = (order) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.put(`/api/orders/${order._id}/ship`, {}, config);
+    const { data } = await axios.put(`/api/orders/${order._id}/ship`, { tracking, service }, config);
     dispatch({
       type: ORDER_SHIP_SUCCESS,
       payload: data,

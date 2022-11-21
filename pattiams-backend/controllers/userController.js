@@ -2,7 +2,7 @@ import asyncHandler from "express-async-handler";
 import generateToken from "../utils/generateToken.js";
 import User from "../models/userModel.js";
 import Otp from "../models/otpModel.js";
-import { mail } from '../config/mailer.js';
+import { mail, welcomeMail } from '../config/mailer.js';
 
 // AUTH USER AND GET TOKEN
 // @router '/api/users/login'
@@ -49,6 +49,8 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
+
+    welcomeMail(user.email, user.name)
     
     res.status(201).json({
       _id: user._id,

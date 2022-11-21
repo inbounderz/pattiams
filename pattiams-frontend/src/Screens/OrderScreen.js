@@ -8,7 +8,11 @@ import {
   ListGroup,
   Image,
   Card,
+  Form,
+  Dropdown,
+  FormGroup,
 } from "react-bootstrap";
+import Modal from "react-bootstrap/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
@@ -32,6 +36,15 @@ const OrderScreen = () => {
 
   const { id } = useParams();
 
+  // States
+  const [tracking, setTracking] = useState("");
+  const [service, setService] = useState("");
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -53,14 +66,28 @@ const OrderScreen = () => {
     if (!userInfo) {
       navigate("/login");
     }
-    if (!order || successPay || successDeliver || successShip || order._id !== id) {
+    if (
+      !order ||
+      successPay ||
+      successDeliver ||
+      successShip ||
+      order._id !== id
+    ) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch({ type: ORDER_DELIVER_RESET });
       dispatch({ type: ORDER_SHIP_RESET });
 
       dispatch(getOrderDetails(id));
     }
-  }, [dispatch, id, successPay, successDeliver, successShip, order, getOrderDetails]);
+  }, [
+    dispatch,
+    id,
+    successPay,
+    successDeliver,
+    successShip,
+    order,
+    getOrderDetails,
+  ]);
 
   const loadScript = (src) => {
     return new Promise((resolve) => {
@@ -119,7 +146,12 @@ const OrderScreen = () => {
   };
 
   const shipHandler = () => {
-    dispatch(shipOrder(order));
+    setShow(true);
+  };
+
+  const trackingNumHandler = (e) => {
+    e.preventDefault();
+    dispatch(shipOrder(order, tracking, service));
   };
 
   return loading ? (
@@ -140,8 +172,6 @@ const OrderScreen = () => {
                 </strong>
                 {order.shippingAddress.name}
                 <br />
-                {order.shippingAddress.phone}
-                <br />
                 {order.shippingAddress.flat}
                 <br />
                 {order.shippingAddress.area}
@@ -153,6 +183,10 @@ const OrderScreen = () => {
                 {order.shippingAddress.postalCode}
                 <br />
                 {order.shippingAddress.landmark}
+                <br />
+                <strong>Phone:</strong> {order.shippingAddress.phone}
+                <br />
+                <strong>Email:</strong> {order.shippingAddress.email}
               </p>
               <div className="my-3">
                 {order.isDelivered ? (
@@ -206,9 +240,15 @@ const OrderScreen = () => {
                         <Col md={4}>
                           {item.qty} X{" "}
                           {item.discountPrice > 0 ? (
-                            <><span className="rupee-symbol">₹</span>{item.discountPrice}</>
+                            <>
+                              <span className="rupee-symbol">₹</span>
+                              {item.discountPrice}
+                            </>
                           ) : (
-                            <><span className="rupee-symbol">₹</span>{item.price}</>
+                            <>
+                              <span className="rupee-symbol">₹</span>
+                              {item.price}
+                            </>
                           )}{" "}
                           = <span className="rupee-symbol">₹</span>
                           {item.qty *
@@ -233,25 +273,37 @@ const OrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col><span className="rupee-symbol">₹</span>{order.itemsPrice}</Col>
+                  <Col>
+                    <span className="rupee-symbol">₹</span>
+                    {order.itemsPrice}
+                  </Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col><span className="rupee-symbol">₹</span>{order.shippingPrice}</Col>
+                  <Col>
+                    <span className="rupee-symbol">₹</span>
+                    {order.shippingPrice}
+                  </Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col><span className="rupee-symbol">₹</span>{order.taxPrice}</Col>
+                  <Col>
+                    <span className="rupee-symbol">₹</span>
+                    {order.taxPrice}
+                  </Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col><span className="rupee-symbol">₹</span>{order.totalPrice}</Col>
+                  <Col>
+                    <span className="rupee-symbol">₹</span>
+                    {order.totalPrice}
+                  </Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
@@ -301,6 +353,46 @@ const OrderScreen = () => {
           </Card>
         </Col>
       </Row>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>
+          <p className="mt-3">
+            Select delivery service and enter tracking number
+          </p>
+          <Form onSubmit={trackingNumHandler}>
+            <FormGroup className="mt-3">
+              <Form.Control
+                type="text"
+                placeholder="Enter Tracking Number"
+                value={tracking}
+                onChange={(e) => setTracking(e.target.value)}
+                required
+              ></Form.Control>
+            </FormGroup>
+            <FormGroup className="mt-3">
+              <Form.Select
+                aria-label="Default select example"
+                value={service}
+                required
+                onChange={(e) => setService(e.target.value)}
+              >
+                <option>Select shipping service</option>
+                <option value="Professional Courier">
+                  Professional Courier
+                </option>
+                <option value="India Post">India Post</option>
+                <option value="DTDC">DTDC</option>
+                <option value="Delhivery">Delhivery</option>
+                <option value="Others">Others</option>
+              </Form.Select>
+            </FormGroup>
+            <Button type="submit" className="mt-2">
+              Submit
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </Container>
   );
 };
