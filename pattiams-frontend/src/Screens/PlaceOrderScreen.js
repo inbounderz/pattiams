@@ -35,21 +35,34 @@ const PlaceOrderScreen = () => {
   cartItems2.itemsPrice = cartItems2.products.reduce((acc, item) => acc + Number(item.qty) * (item.price), 0);
   cartItems2.normalPrice = cartItems2.itemsPrice;
 
-  // 10% discount
   cartItems2.itemsPrice = Number((cartItems2.itemsPrice - cartItems2.itemsPrice*0.10).toFixed(2));
-
+  
   // cartItems2.shippingPrice = cartItems2.itemsPrice > 199 ? 0 : 60;
   cartItems2.shippingPrice = 0;
-
-  cartItems2.taxPrice = 0;
   
+  cartItems2.taxPrice = 0;
+  // 10% discount
+  let newPrice = 0;
   cartItems2.products.map((product) => {
+    newPrice = 0;
+    newPrice = newPrice + product.price - product.price * 0.10;
     if(product.productCategory==="ayurveda"){
-      cartItems2.taxPrice = cartItems2.taxPrice + Number((0.05 * product.price * product.qty).toFixed(2));
+      cartItems2.taxPrice = cartItems2.taxPrice + 0.05 * newPrice;
+      // cartItems2.taxPrice = cartItems2.taxPrice + Number((0.05 * product.price * product.qty).toFixed(2));
     }else{
-      cartItems2.taxPrice = cartItems2.taxPrice + Number((0.18 * product.price * product.qty).toFixed(2));
+      cartItems2.taxPrice = cartItems2.taxPrice + 0.18 * newPrice;
+      // cartItems2.taxPrice = cartItems2.taxPrice + Number((0.18 * product.price * product.qty).toFixed(2));
     }
   })
+  // cartItems2.products.map((product) => {
+  //   if(product.productCategory==="ayurveda"){
+  //     cartItems2.taxPrice = cartItems2.taxPrice + 0.05 * product.price;
+  //     cartItems2.taxPrice = cartItems2.taxPrice + Number((0.05 * product.price * product.qty).toFixed(2));
+  //   }else{
+  //     cartItems2.taxPrice = cartItems2.taxPrice + 0.18 * product.price;
+  //     cartItems2.taxPrice = cartItems2.taxPrice + Number((0.18 * product.price * product.qty).toFixed(2));
+  //   }
+  // })
 
   cartItems2.taxPrice = Number(cartItems2.taxPrice.toFixed(2));
 
