@@ -75,20 +75,27 @@ app.post('/razorpay/success/:id', async (req, res) => {
 })
 
 // Upload folder is not going to be accessible by default. So, we have to make it static.
+
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/pattiams-frontend/build")));
 
-  app.get("*", (req, res) => {
+  app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "pattiams-frontend", "build", "index.html"));
   });
+  
+  app.get("/*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "pattiams-frontend", "build", "index.html"));
+  });
+  
 } else {
   app.get("/", (req, res) => {
     res.send("API is running...");
   });
 }
+
 
 // Custom error handling middleware
 app.use(notFound);

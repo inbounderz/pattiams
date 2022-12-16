@@ -1,6 +1,6 @@
 import Navigationbar from "./Components/Navigationbar";
 import Footer from "./Components/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import HomeScreen from "./Screens/HomeScreen";
 import SingleProduct from "./Screens/SingleProduct";
 import CartScreen from "./Screens/CartScreen";
@@ -31,7 +31,7 @@ import Directors from "./Screens/Directors";
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <Navigationbar />
       <Routes>
         <Route path="/" element={<HomeScreen />} exact />
@@ -66,7 +66,7 @@ function App() {
         <Route path="/directors" element={<Directors />} />
       </Routes>
       <Footer />
-    </Router>
+    </HashRouter>
   );
 }
 
