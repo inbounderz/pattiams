@@ -11,6 +11,7 @@ import Loader from "../Components/Loader";
 import Message from "../Components/Message";
 import Paginate from "../Components/Paginate";
 import { Link } from "react-router-dom";
+import {HashLink} from 'react-router-hash-link';
 
 const ProductListScreen = () => {
   const dispatch = useDispatch();
@@ -147,12 +148,12 @@ const ProductListScreen = () => {
             {cat && cat === "ayurveda" && (
               <Container>
                 <div className="text-center my-3 cat-btn-div">
-                  <a href="#patent" className="text-decoration-none">
+                <HashLink to="#patent" className="text-decoration-none">
                     <span className="ayurveda-cat-btn">Patent Products</span>
-                  </a>
-                  <a href="#classical" className="text-decoration-none">
+                  </HashLink>
+                  <HashLink to="#classical" className="text-decoration-none">
                     <span className="ayurveda-cat-btn">Classical Products</span>
-                  </a>
+                  </HashLink>
                 </div>
               </Container>
             )}

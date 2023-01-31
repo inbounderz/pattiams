@@ -84,14 +84,29 @@ const Navigationbar = () => {
                           title="Categories"
                           id="input-group-dropdown-1"
                         >
-                          <Dropdown.Item href="/productlist/ayurveda">
-                            Ayurveda
+                          <Dropdown.Item>
+                            <Link
+                              to={`/productlist/ayurveda`}
+                              className="text-decoration-none"
+                            >
+                              Ayurveda
+                            </Link>
                           </Dropdown.Item>
-                          <Dropdown.Item href="/productlist/beautycare">
-                            Beauty Care
+                          <Dropdown.Item>
+                            <Link
+                              to={`/productlist/beautycare`}
+                              className="text-decoration-none"
+                            >
+                              Beauty Care
+                            </Link>
                           </Dropdown.Item>
-                          <Dropdown.Item href="/productlist/organicfoods">
-                            Foods
+                          <Dropdown.Item>
+                            <Link
+                              to={`/productlist/organicfoods`}
+                              className="text-decoration-none"
+                            >
+                              Foods
+                            </Link>
                           </Dropdown.Item>
                         </DropdownButton>
                       </div>
@@ -150,7 +165,7 @@ const Navigationbar = () => {
                   <div className="cart-and-price d-flex flex-column justify-content-center">
                     <span className="cart-text-header">My Cart</span>
                     <span className="cart-price-header">
-                    <span className="rupee-symbol">₹</span>
+                      <span className="rupee-symbol">₹</span>
                       {cartItems &&
                         cartItems
                           .reduce(
